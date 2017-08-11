@@ -18,13 +18,10 @@ import okhttp3.OkHttpClient;
 
 public class MyAppInitSDK {
 
-    /**
-     * 初始化一些第三方
-     *
-     * @param mContext
-     */
     public static void initLibrary(Context mContext) {
+        //初始化log日志
         Logger.addLogAdapter(new AndroidLogAdapter());
+        //初始化glide图片加载
         Glide.get(mContext).register(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(new OkHttpClient()));
     }
 }
