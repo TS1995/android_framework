@@ -60,5 +60,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.0.1'
     //V7包
     compile 'com.android.support:appcompat-v7:25.0.1+'
+    //日志打印
+    compile 'com.orhanobut:logger:2.1.1'
 
 }
