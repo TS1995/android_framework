@@ -6,9 +6,9 @@ import android.app.Application;
  * Created by Administrator on 2017/8/11 0011.
  */
 
-public class MyApp extends Application {
+public class BaseApplication extends Application {
 
-    public static MyApp instance;
+    public static BaseApplication instance;
 
     @Override
     public void onCreate() {
@@ -17,7 +17,7 @@ public class MyApp extends Application {
         MyAppInitSDK.initLibrary(this);
     }
 
-    public static MyApp getInstance() {
+    public static BaseApplication getInstance() {
         return instance;
     }
 }

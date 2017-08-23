@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.support.v7.app.NotificationCompat;
 
 import com.moyou.frameproject.R;
-import com.moyou.frameproject.application.MyApp;
+import com.moyou.frameproject.application.BaseApplication;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
@@ -54,15 +54,15 @@ public class NotificationUtils {
     }
 
     private void showNotification(int id, int type) {
-        Intent intentClick = new Intent(MyApp.getInstance(), NotificationBroadcastReceiver.class);
+        Intent intentClick = new Intent(BaseApplication.getInstance(), NotificationBroadcastReceiver.class);
         intentClick.setAction("clicked");
         intentClick.putExtra(NotificationBroadcastReceiver.TYPE, type);
-        PendingIntent pendingIntentClick = PendingIntent.getBroadcast(MyApp.getInstance(), 0, intentClick, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingIntentClick = PendingIntent.getBroadcast(BaseApplication.getInstance(), 0, intentClick, PendingIntent.FLAG_ONE_SHOT);
 
-        Intent intentCancel = new Intent(MyApp.getInstance(), NotificationBroadcastReceiver.class);
+        Intent intentCancel = new Intent(BaseApplication.getInstance(), NotificationBroadcastReceiver.class);
         intentCancel.setAction("cancelled");
         intentCancel.putExtra(NotificationBroadcastReceiver.TYPE, type);
-        PendingIntent pendingIntentCancel = PendingIntent.getBroadcast(MyApp.getInstance(), 0, intentCancel, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingIntentCancel = PendingIntent.getBroadcast(BaseApplication.getInstance(), 0, intentCancel, PendingIntent.FLAG_ONE_SHOT);
 
         mBuilder.setContentIntent(pendingIntentClick).setDeleteIntent(pendingIntentCancel);
         notificationManager.notify(id, mBuilder.build());
@@ -71,10 +71,10 @@ public class NotificationUtils {
 
     private void onCreateNotification() {
         if (mBuilder == null) {
-            mBuilder = new NotificationCompat.Builder(MyApp.getInstance());
+            mBuilder = new NotificationCompat.Builder(BaseApplication.getInstance());
         }
         if (notificationManager == null) {
-            notificationManager = (NotificationManager) MyApp.getInstance().getSystemService(NOTIFICATION_SERVICE);
+            notificationManager = (NotificationManager) BaseApplication.getInstance().getSystemService(NOTIFICATION_SERVICE);
         }
     }
 }
