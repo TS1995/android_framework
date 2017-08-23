@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import com.moyou.baselibrary.AppManager;
 
@@ -25,15 +24,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mContext = this;
         ButterKnife.bind(this);
-        getIntentExtras();
-        if (openEventBus()) {
-            EventBus.getDefault().register(this);
-        }
-        AppManager.getAppManager().addActivity(this);
+        openActivityEventBus();
         setContentView(getLayout());
-        initView();
-        initData();
-        OnClickListener();
+        getIntentExtras();
+        initActivityData();
+        OnActivityClickListener();
+        AppManager.getAppManager().addActivity(this);
     }
 
     protected abstract boolean openEventBus();
@@ -42,19 +38,29 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract int getLayout();
 
-    protected abstract void initView();
+    protected abstract void initActivityData();
 
-    protected abstract void initData();
-
-    protected abstract void OnClickListener();
+    protected abstract void OnActivityClickListener();
 
 
+    private void openActivityEventBus() {
+        if (openEventBus()) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    private void closeActivityEventBus() {
+        if (openEventBus()) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
 
     protected void startActivityFinish(Class<?> clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
         finish();
     }
+
     protected void startActivity(Class<?> clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
@@ -63,9 +69,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (openEventBus()) {
-            EventBus.getDefault().unregister(this);
-        }
+        closeActivityEventBus();
         AppManager.getAppManager().finishActivity(this);
     }
 }
