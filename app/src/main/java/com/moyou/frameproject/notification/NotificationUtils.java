@@ -46,6 +46,7 @@ public class NotificationUtils {
         mBuilder.setOngoing(false);
         mBuilder.setAutoCancel(true);
         mBuilder.setSmallIcon(R.mipmap.ic_launcher);
+        mBuilder.setDefaults(Notification.DEFAULT_ALL);
         if (!isOpenVoice) {
             mBuilder.build().sound = null;
             mBuilder.build().vibrate = null;
