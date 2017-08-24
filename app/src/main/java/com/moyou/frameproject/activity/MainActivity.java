@@ -5,6 +5,15 @@ import com.moyou.frameproject.R;
 
 public class MainActivity extends BaseActivity {
 
+
+    @Override
+    protected void noNet() {
+    }
+
+    @Override
+    protected void okNet() {
+    }
+
     @Override
     protected boolean openEventBus() {
         return false;

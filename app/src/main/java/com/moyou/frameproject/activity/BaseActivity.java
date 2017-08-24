@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import com.moyou.baselibrary.AppManager;
 
@@ -16,7 +15,7 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2017/8/11 0011.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends FatherActivity {
     protected Context mContext;
 
     @Override
@@ -32,6 +31,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         AppManager.getAppManager().addActivity(this);
     }
 
+    @Override
+    protected void noNet() {
+        super.noNet();
+    }
+
+    @Override
+    protected void okNet() {
+        super.okNet();
+    }
+
     protected abstract boolean openEventBus();
 
     protected abstract void getIntentExtras();
@@ -41,7 +50,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initActivityData();
 
     protected abstract void OnActivityClickListener();
-
 
     private void openActivityEventBus() {
         if (openEventBus()) {

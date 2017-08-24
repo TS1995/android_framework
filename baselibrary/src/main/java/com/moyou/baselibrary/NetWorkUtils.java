@@ -10,8 +10,15 @@ import android.telephony.TelephonyManager;
  */
 
 public class NetWorkUtils {
+
+    //有网络状态
+    public static final int NO_NET = 0;
+    //无网络状态
+    public static final int OK_NET = 1;
+
     /**
      * 判断是否有网络连接
+     *
      * @param context
      * @return
      */
@@ -30,6 +37,7 @@ public class NetWorkUtils {
 
     /**
      * 判断WIFI网络是否可用
+     *
      * @param context
      * @return
      */
@@ -49,6 +57,7 @@ public class NetWorkUtils {
 
     /**
      * 判断MOBILE网络是否可用
+     *
      * @param context
      * @return
      */
@@ -68,6 +77,7 @@ public class NetWorkUtils {
 
     /**
      * 获取当前网络连接的类型信息
+     *
      * @param context
      * @return
      */

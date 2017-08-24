@@ -1,5 +1,7 @@
 package com.moyou.frameproject.activity;
 
+import android.util.Log;
+
 import com.moyou.frameproject.R;
 import com.moyou.frameproject.notification.NotificationUtils;
 
@@ -10,6 +12,16 @@ import static com.moyou.frameproject.notification.NotificationBroadcastReceiver.
  */
 
 public class HomeActivity extends BaseActivity {
+
+    @Override
+    protected void noNet() {
+        Log.e("打印下网络数据","无网络-Home");
+    }
+
+    @Override
+    protected void okNet() {
+        Log.e("打印下网络数据","有网络-Home");
+    }
 
     @Override
     protected boolean openEventBus() {
