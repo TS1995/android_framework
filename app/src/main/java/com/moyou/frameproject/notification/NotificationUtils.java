@@ -21,6 +21,8 @@ public class NotificationUtils {
 
     public static final String TITLE_CONTENT = "框架通知";
 
+    private static  final int icon = R.mipmap.ic_launcher;
+
     private NotificationCompat.Builder mBuilder;
 
     private NotificationManager notificationManager;
@@ -45,7 +47,7 @@ public class NotificationUtils {
         mBuilder.setPriority(Notification.PRIORITY_DEFAULT);
         mBuilder.setOngoing(false);
         mBuilder.setAutoCancel(true);
-        mBuilder.setSmallIcon(R.mipmap.ic_launcher);
+        mBuilder.setSmallIcon(icon);
         mBuilder.setDefaults(Notification.DEFAULT_ALL);
         if (!isOpenVoice) {
             mBuilder.build().sound = null;

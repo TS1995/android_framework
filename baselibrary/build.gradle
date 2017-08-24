@@ -2,6 +2,10 @@ apply plugin: 'com.android.library'
 //lambda表达式插件
 apply plugin: 'me.tatarka.retrolambda'
 
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.Mypyx'
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.1"

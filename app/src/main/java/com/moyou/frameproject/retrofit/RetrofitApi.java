@@ -1,4 +1,4 @@
-package com.moyou.frameproject.interface_;
+package com.moyou.frameproject.retrofit;
 
 /**
  * Created by Administrator on 2017/8/11 0011.
