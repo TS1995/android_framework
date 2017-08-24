@@ -22,13 +22,13 @@ public abstract class BaseActivity extends FatherActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
-        ButterKnife.bind(this);
+        AppManager.getAppManager().addActivity(this);
+        setContentView(getActivityLayout());
         openActivityEventBus();
-        setContentView(getLayout());
+        ButterKnife.bind(this);
         getIntentExtras();
         initActivityData();
         OnActivityClickListener();
-        AppManager.getAppManager().addActivity(this);
     }
 
     @Override
@@ -45,7 +45,7 @@ public abstract class BaseActivity extends FatherActivity {
 
     protected abstract void getIntentExtras();
 
-    protected abstract int getLayout();
+    protected abstract int getActivityLayout();
 
     protected abstract void initActivityData();
 

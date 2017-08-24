@@ -11,6 +11,7 @@ import android.content.Intent;
  */
 
 public class NotificationBroadcastReceiver extends BroadcastReceiver {
+
     public static final String TYPE = "notification_type";
     //如：定义的通知类型
     public static final int MSG_TYPE = 1;
@@ -42,7 +43,6 @@ public class NotificationBroadcastReceiver extends BroadcastReceiver {
         switch (type) {
             case MSG_TYPE:
                 break;
-
         }
     }
 
