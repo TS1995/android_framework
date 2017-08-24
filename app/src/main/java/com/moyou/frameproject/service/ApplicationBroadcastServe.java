@@ -14,9 +14,10 @@ import com.moyou.frameproject.application.BaseApplication;
 
 /**
  * Created by Administrator on 2017/8/11 0011.
+ * APP广播服务类
  */
 
-public class ApplicationServe extends Service {
+public class ApplicationBroadcastServe extends Service {
 
     //网络广播的action
     public static final String NET_BROADCAST = "NetworkServe";

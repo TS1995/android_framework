@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.integration.okhttp3.OkHttpUrlLoader;
 import com.bumptech.glide.load.model.GlideUrl;
-import com.moyou.frameproject.service.ApplicationServe;
+import com.moyou.frameproject.service.ApplicationBroadcastServe;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -31,7 +31,7 @@ public class MyAppInitSDK {
     }
 
     private static void openNetServe(Context mContext) {
-        Intent intent = new Intent(mContext, ApplicationServe.class);
+        Intent intent = new Intent(mContext, ApplicationBroadcastServe.class);
         mContext.startService(intent);
     }
 }

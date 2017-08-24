@@ -25,7 +25,7 @@
         </activity>
         <activity android:name=".activity.HomeActivity"></activity>
 
-        <service android:name=".service.ApplicationServe"></service>
+        <service android:name=".service.ApplicationBroadcastServe"></service>
     </application>
 
 </manifest>
