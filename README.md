@@ -4,12 +4,11 @@
 
 
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-
+    repositories {
+        ...
+    maven { url 'https://jitpack.io' }
+}
+ }
 
 compile 'com.github.Mypyx:developmentFramework:1.0.1'
 
