@@ -10,6 +10,6 @@ allprojects {
    }
  }
 
-compile 'com.github.Mypyx:developmentFramework:1.0.1'
+compile 'com.github.Mypyx:android_framework:1.0.2'
 
 
