@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Administrator on 2017/8/11 0011.
+ * 测试更新版本
  */
 
 public abstract class BaseActivity extends FatherActivity {
